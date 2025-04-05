@@ -6,11 +6,19 @@ return {
     config = function()
         vim.g.makery_config = {
             ['~/projects/botman'] = {
-                build = { makeprg = 'cmake --build build --config Debug' },
+                build = { makeprg = 'cmake --build build --config Debug' }
             },
 
             ['~/projects/dotfiles'] = {
                 build = { makeprg = './dotfiles.sh' }
+            },
+
+            ['~/projects/interpreter-in-cpp'] = {
+                build = { makeprg = 'cmake --build build' }
+            },
+
+            ['~/testing/opengl'] = {
+                build = { makeprg = 'cmake --build build' }
             },
         }
 

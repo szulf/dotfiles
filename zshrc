@@ -119,3 +119,5 @@ export VCPKG_ROOT=~/vcpkg
 export PATH=$PATH:$VCPKG_ROOT
 
 export EDITOR=nvim
+
+export PATH="$PATH:/opt/mssql-tools18/bin"

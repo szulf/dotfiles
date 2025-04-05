@@ -30,6 +30,8 @@ vim.opt.guicursor = ''
 
 vim.opt.inccommand = 'split'
 
+vim.opt.colorcolumn = '81'
+
 vim.opt.hlsearch = true
 Map('<Esc>', function() vim.cmd('nohlsearch') end)
 

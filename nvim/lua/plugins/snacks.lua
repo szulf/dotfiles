@@ -5,10 +5,6 @@ return {
     priority = 1000,
 
     opts = {
-        input = { enabled = true },
-
-        notifier = { enabled = true },
-
         explorer = { enabled = true },
 
         dashboard = {
@@ -71,15 +67,14 @@ return {
 
                 files = {
                     hidden = true,
-                    ignored = true,
                 },
             },
         },
     },
 
     keys = {
-        { '<leader>ff', function() Snacks.picker.files() end, desc = 'find files'},
-        { '<leader>fg', function() Snacks.picker.grep() end, desc = 'grep through files'},
-        { '<leader>fe', function() Snacks.explorer() end, desc = 'open the file explorer'},
+        { '<leader>ff', function() Snacks.picker.files() end, desc = 'find files' },
+        { '<leader>fg', function() Snacks.picker.grep() end,  desc = 'grep through files' },
+        { '<leader>fe', function() Snacks.explorer() end,     desc = 'open the file explorer' },
     },
 }

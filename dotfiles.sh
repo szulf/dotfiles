@@ -4,11 +4,11 @@ copy_if_changed() {
     cmp --silent $1 $2
     status=$?
 
-    if [ $status == 1 ]; then
+    if [ $status == 0 ]; then
+        echo "'$2' is up to date"
+    else
         echo "copying '$1' into '$2'"
         cp $1 $2
-    else
-        echo "'$2' is up to date"
     fi
 }
 
@@ -25,10 +25,12 @@ for file in *; do
     fi
 
     if [ $file == "zshrc" ]; then
-        copy_if_changed "./$file" "/home/user/.zshrc"
+        copy_if_changed "./$file" "/home/$USER/.zshrc"
     elif [ $file == "mine.zsh-theme" ]; then
-        copy_if_changed "./$file" "/home/user/.oh-my-zsh/custom/themes/$file"
+        copy_if_changed "./$file" "/home/$USER/.oh-my-zsh/custom/themes/$file"
+    elif [ $file == "clang-format" ]; then
+        copy_if_changed "./$file" "/home/$USER/.clang-format"
     elif [ -d $file ]; then
-        copy_if_changed_dir "./$file" "/home/user/.config/$file"
+        copy_if_changed_dir "./$file" "/home/$USER/.config/$file"
     fi
 done
