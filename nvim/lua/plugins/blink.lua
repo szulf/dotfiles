@@ -8,7 +8,7 @@ return {
     opts = {
         keymap = {
             preset = 'default',
-            ['<C-space>'] = { 'accept' },
+            ['<C-space>'] = { 'show', 'accept' },
             ['<C-k>'] = { 'show_documentation' },
         },
 

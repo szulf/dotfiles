@@ -15,6 +15,7 @@ return {
                 Map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
                 Map('K', vim.lsp.buf.hover, '[H]over documentation')
                 Map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+                Map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
 
                 -- local builtin = require('telescope.builtin')
                 -- Map('gd', builtin.lsp_definitions, '[G]oto [D]efinition')
@@ -59,7 +60,7 @@ return {
                         plugins = {
                             pycodestyle = {
                                 enabled = true,
-                                ignore = {'E501'},
+                                ignore = { 'E501' },
                                 maxLineLength = 120,
                             },
                         },

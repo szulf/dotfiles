@@ -17,7 +17,7 @@ return {
                 build = { makeprg = 'cmake --build build' }
             },
 
-            ['~/testing/opengl'] = {
+            ['~/projects/opengl'] = {
                 build = { makeprg = 'cmake --build build' }
             },
         }
@@ -37,7 +37,6 @@ return {
             else
                 vim.cmd('copen')
             end
-
         end, 'Open the quickfix window')
     end
 }
