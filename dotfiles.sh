@@ -7,8 +7,9 @@ copy_if_changed() {
     if [ $status == 0 ]; then
         echo "'$2' is up to date"
     else
-        echo "copying '$1' into '$2'"
+        echo "removing '$2'"
         rm -r $2
+        echo "copying '$1' into '$2'"
         cp -r $1 $2
     fi
 }

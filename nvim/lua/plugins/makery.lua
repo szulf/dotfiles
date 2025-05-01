@@ -20,6 +20,10 @@ return {
             ['~/projects/opengl'] = {
                 build = { makeprg = 'cmake --build build' }
             },
+
+            ['~/projects/braek'] = {
+                build = { makeprg = 'clang++ -std=c++23 src/main.cpp -o braek -Wall -Werror' }
+            },
         }
 
         Map('<leader>mk', function() vim.cmd('Mbuild') end, 'build the current project')
