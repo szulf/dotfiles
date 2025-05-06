@@ -11,8 +11,6 @@ return {
     config = function()
         vim.api.nvim_create_autocmd('LspAttach', {
             callback = function(event)
-                Map('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
-                Map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
                 Map('K', vim.lsp.buf.hover, '[H]over documentation')
                 Map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
                 Map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
