@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 
 copy_if_changed() {
     diff -r $1 $2 > /dev/null
@@ -20,12 +20,16 @@ for file in *; do
     fi
 
     if [ $file == "zshrc" ]; then
-        copy_if_changed "./$file" "/home/$USER/.zshrc"
+        copy_if_changed "./$file" "$HOME/.zshrc"
     elif [ $file == "mine.zsh-theme" ]; then
-        copy_if_changed "./$file" "/home/$USER/.oh-my-zsh/custom/themes/$file"
+        copy_if_changed "./$file" "$HOME/.oh-my-zsh/custom/themes/$file"
     elif [ $file == "clang-format" ]; then
-        copy_if_changed "./$file" "/home/$USER/.clang-format"
+        copy_if_changed "./$file" "$HOME/.clang-format"
     elif [ -d $file ]; then
-        copy_if_changed "./$file" "/home/$USER/.config/$file"
+        copy_if_changed "./$file" "$HOME/.config/$file"
+
+	if [ $file == "hypr" ]; then
+	    hyprctl reload
+	fi
     fi
 done

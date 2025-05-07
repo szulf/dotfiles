@@ -69,12 +69,6 @@ return {
             cmake = {},
 
             glsl_analyzer = {},
-
-            html = {},
-
-            ts_ls = {},
-
-            csharp_ls = {},
         }
 
         require('mason').setup()

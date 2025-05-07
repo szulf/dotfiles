@@ -1,6 +1,8 @@
 return {
     'saghen/blink.cmp',
 
+    version = '1.*',
+
     dependencies = {
         'rafamadriz/friendly-snippets',
     },
@@ -13,7 +15,7 @@ return {
         },
 
         fuzzy = {
-            implementation = 'rust',
+            implementation = 'lua',
         },
     },
 }
