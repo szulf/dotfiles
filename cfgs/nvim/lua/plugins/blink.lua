@@ -7,6 +7,8 @@ return {
         'rafamadriz/friendly-snippets',
     },
 
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
     opts = {
         keymap = {
             preset = 'default',
@@ -16,6 +18,18 @@ return {
 
         fuzzy = {
             implementation = 'lua',
+        },
+
+        completion = {
+            menu          = {
+                border = "single",
+            },
+            documentation = {
+                window = {
+                    border = "single",
+                },
+                border = "single",
+            },
         },
     },
 }

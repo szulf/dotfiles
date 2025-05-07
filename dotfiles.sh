@@ -14,6 +14,7 @@ copy_if_changed() {
     fi
 }
 
+cd cfgs/
 for file in *; do
     if [ $file == "dotfiles.sh" ]; then
         continue
@@ -28,8 +29,8 @@ for file in *; do
     elif [ -d $file ]; then
         copy_if_changed "./$file" "$HOME/.config/$file"
 
-	if [ $file == "hypr" ]; then
-	    hyprctl reload
-	fi
+        if [ $file == "hypr" ]; then
+            hyprctl reload
+        fi
     fi
 done

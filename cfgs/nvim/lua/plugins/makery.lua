@@ -5,28 +5,8 @@ return {
 
     config = function()
         vim.g.makery_config = {
-            ['~/projects/botman'] = {
-                build = { makeprg = 'cmake --build build --config Debug' }
-            },
-
-            ['~/projects/dotfiles'] = {
+            ['~/dotfiles'] = {
                 build = { makeprg = './dotfiles.sh' }
-            },
-
-            ['~/projects/interpreter-in-cpp'] = {
-                build = { makeprg = 'cmake --build build' }
-            },
-
-            ['~/projects/opengl'] = {
-                build = { makeprg = 'cmake --build build' }
-            },
-
-            ['~/projects/braek'] = {
-                build = { makeprg = 'clang++ -std=c++23 src/main.cpp -o braek -Wall -Werror' }
-            },
-
-            ['~/projects/demo-effects'] = {
-                build = { makeprg = 'cmake --build build' }
             },
         }
 

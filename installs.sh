@@ -14,7 +14,7 @@ to_install=(
     ghostty
     mpv yt-dlp ffmpeg
     python
-    neovim
+    neovim wl-clipboard
     unzip
 )
 

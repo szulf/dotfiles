@@ -13,6 +13,7 @@ just copy the repo, and run the dotfiles.sh script
 that **should** work
 
 # todo
+- zsh
 - some bar on top
 - better app launcher
 - better greeter

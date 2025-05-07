@@ -60,4 +60,7 @@ if vim.g.neovide then
     vim.opt.guifont = 'JetBrains Mono NL:h11'
 end
 
-Map('<leader>ds', vim.diagnostic.open_float, 'Show the whole diagnostic msg')
+-- doesnt work when put in the lspconfig file
+Map('K', function()
+    vim.lsp.buf.hover({ border = 'single' })
+end, '[C]ode [A]ction')

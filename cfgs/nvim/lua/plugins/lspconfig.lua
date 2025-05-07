@@ -11,19 +11,11 @@ return {
     config = function()
         vim.api.nvim_create_autocmd('LspAttach', {
             callback = function(event)
-                Map('K', vim.lsp.buf.hover, '[H]over documentation')
                 Map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
                 Map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-
-                -- local builtin = require('telescope.builtin')
-                -- Map('gd', builtin.lsp_definitions, '[G]oto [D]efinition')
-                -- Map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-                -- Map('gr', builtin.lsp_references, '[G]oto [R]eferences')
-                -- Map('gi', builtin.lsp_implementations, '[G]oto [I]mplementation')
-                -- Map('<leader>D', builtin.lsp_type_definitions, '[G]oto type [D]efinition')
-                -- Map('K', vim.lsp.buf.hover, '[H]over documentation')
-                -- Map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-                -- Map('<leader>rn', vim.lsp.buf.rename, '[R]e[N]ame')
+                Map('<leader>ds', function()
+                    vim.diagnostic.open_float({ border = 'single' })
+                end, 'Show the whole diagnostic msg')
 
                 local client = vim.lsp.get_client_by_id(event.data.client_id)
                 if client and client.server_capabilities.documentHighlightProvider then
