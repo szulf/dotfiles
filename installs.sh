@@ -4,6 +4,10 @@ install() {
     sudo pacman -S --needed --noconfirm "$@"
 }
 
+install_aur() {
+    paru -S --needed --noconfirm "$@"
+}
+
 uninstall() {
     sudo pacman -Rns --noconfirm "$@"
 }
@@ -16,6 +20,11 @@ to_install=(
     python
     neovim wl-clipboard
     unzip
+    spotify
+)
+
+to_install_aur=(
+    spotify
 )
 
 to_uninstall=(
@@ -23,6 +32,7 @@ to_uninstall=(
 )
 
 install ${to_install[@]}
+install_aur ${to_install_aur[@]}
 uninstall ${to_uninstall[@]}
 
 if [ ! -d ~/installs/paru ]; then

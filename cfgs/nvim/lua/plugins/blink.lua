@@ -28,7 +28,6 @@ return {
                 window = {
                     border = "single",
                 },
-                border = "single",
             },
         },
     },

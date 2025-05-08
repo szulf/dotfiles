@@ -12,7 +12,7 @@ because of chatgpt
 just copy the repo, and run the dotfiles.sh script
 that **should** work
 
-# todo
+## todo
 - zsh
 - some bar on top
 - better app launcher
