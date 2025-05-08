@@ -14,7 +14,6 @@ because of chatgpt
 <!-- that **should** work -->
 
 ## todo
-- zsh(when clicking up arrow only fill the ones that match current input, tab completion not case sensitive)
 - some bar on top
 - better app launcher
 - better greeter
