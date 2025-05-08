@@ -20,11 +20,12 @@ to_install=(
     python
     neovim wl-clipboard
     unzip
-    spotify
+    zsh
 )
 
 to_install_aur=(
     spotify
+    oh-my-posh
 )
 
 to_uninstall=(
@@ -32,14 +33,16 @@ to_uninstall=(
 )
 
 install ${to_install[@]}
-install_aur ${to_install_aur[@]}
 uninstall ${to_uninstall[@]}
 
+# install paru
 if [ ! -d ~/installs/paru ]; then
     curr_dir="$(pwd)"
-    cd ~/installs
+    cd $HOME/installs
     git clone https://aur.archlinux.org/paru.git
     cd paru
     makepkg -si
     cd $curr_dir
 fi
+
+install_aur ${to_install_aur[@]}

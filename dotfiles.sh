@@ -16,18 +16,15 @@ copy_if_changed() {
 
 cd cfgs/
 for file in *; do
-    if [ $file == "dotfiles.sh" ]; then
-        continue
-    fi
-
     if [ $file == "zshrc" ]; then
         copy_if_changed "./$file" "$HOME/.zshrc"
-    elif [ $file == "mine.zsh-theme" ]; then
-        copy_if_changed "./$file" "$HOME/.oh-my-zsh/custom/themes/$file"
     elif [ $file == "clang-format" ]; then
         copy_if_changed "./$file" "$HOME/.clang-format"
-    elif [ -d $file ]; then
+    else
+        if [ $file != "oh-my-posh-theme.json_old" ]; then
         copy_if_changed "./$file" "$HOME/.config/$file"
+        fi
+
 
         if [ $file == "hypr" ]; then
             hyprctl reload

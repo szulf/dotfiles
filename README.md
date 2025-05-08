@@ -4,17 +4,19 @@ switched to arch ):
 because of chatgpt
 
 ## consists of
+- setup scripts
 - nvim config
 - hyprland config
-- setup scripts
+- zsh and oh-my-posh config
 
-## installation
-just copy the repo, and run the dotfiles.sh script
-that **should** work
+<!-- ## installation -->
+<!-- just copy the repo, and run the dotfiles.sh script -->
+<!-- that **should** work -->
 
 ## todo
-- zsh
+- zsh(when clicking up arrow only fill the ones that match current input, tab completion not case sensitive)
 - some bar on top
 - better app launcher
 - better greeter
 - better sleep mode
+- timeshift and btrfs for backups
