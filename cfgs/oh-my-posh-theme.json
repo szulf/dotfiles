@@ -42,12 +42,6 @@
                     "type": "path"
                 },
                 {
-                    "style": "plain",
-                    "foreground": "p:closer",
-                    "template": "- ",
-                    "type": "text"
-                },
-                {
                     "foreground": "p:lavender",
                     "properties": {
                         "branch_icon": "\ue725 ",
@@ -61,7 +55,7 @@
                         "revert_icon": "\uf0e2 ",
                         "tag_icon": "\uf412 "
                     },
-                    "template": "{{ .HEAD }}{{ if .Staging.Changed }}<p:red>!{{ end }}",
+                    "template": "<p:closer>- </>{{ .HEAD }}{{ if or (.Staging.Changed) (.Working.Changed) }}<p:red>!{{ end }}",
                     "style": "plain",
                     "type": "git"
                 }

@@ -16,5 +16,3 @@ eval "$(oh-my-posh init zsh --config /home/szulf/.config/oh-my-posh-theme.json)"
 
 alias vim="nvim"
 alias ls="ls --color=auto"
-
-            # "template": "\uf105",
