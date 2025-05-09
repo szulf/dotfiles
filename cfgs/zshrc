@@ -12,10 +12,11 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-eval "$(oh-my-posh init zsh --config /home/szulf/.config/oh-my-posh-theme.json)"
+eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh-theme.json)"
 
 alias vim="nvim"
 alias ls="ls --color=auto"
+alias grep="grep --color=auto"
 
 # only autofill(up-arrow) things that match input
 autoload -U up-line-or-beginning-search
@@ -27,4 +28,3 @@ bindkey "^[[B" down-line-or-beginning-search
 
 # case insensitive completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-setopt MENU_COMPLETE

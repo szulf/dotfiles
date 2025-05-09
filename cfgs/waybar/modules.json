@@ -1,0 +1,33 @@
+{
+    "clock": {
+        "format": "{:%R}",
+        "tooltip": true,
+        "tooltip-format": "{:%A %d.%m.%Y}"
+    },
+
+    "memory": {
+        "format": "{used}GB <span size='x-large'></span>"
+    },
+
+    "cpu": {
+        "format": "{usage}% <span size='x-large'></span>"
+    },
+
+    "pulseaudio": {
+        "format": "{volume}% <span size='x-large'>󰕾</span>",
+        "tooltip-format": "Volume ({volume}%)"
+    },
+
+    "network": {
+        "format": "{bandwidthDownBytes} <span size='x-large'>󰤨</span>",
+        "interval": 10,
+        "format-disconnected": "<span size='x-large'>󰤭</span>",
+        "tooltip-format": "{ifname} {ipaddr}",
+    },
+
+    "custom/power": {
+        "format": "<span size='x-large'>󰐥</span>",
+        "tooltip": true,
+        "tooltip-format": "Power menu",
+    }
+}

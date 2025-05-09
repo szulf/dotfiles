@@ -14,8 +14,10 @@ because of chatgpt
 <!-- that **should** work -->
 
 ## todo
-- some bar on top
+- wallpaper
 - better app launcher
 - better greeter
 - better sleep mode
 - timeshift and btrfs for backups
+- readup on zsh-autosuggestions and zsh-syntax-highlighting
+- fastfetch on terminal startup

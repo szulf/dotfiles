@@ -21,6 +21,8 @@ to_install=(
     neovim wl-clipboard
     unzip
     zsh
+    waybar
+    noto-fonts-emoji noto-fonts-cjk ttf-font-awesome
 )
 
 to_install_aur=(

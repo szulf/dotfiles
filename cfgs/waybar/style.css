@@ -1,0 +1,100 @@
+@import url("./colors.css");
+
+* {
+    font-family: JetBrains Mono;
+    font-size: 12pt;
+    font-weight: 400;
+}
+
+window#waybar {
+    color: @fg;
+    background-color: transparent
+}
+
+#workspaces {
+    background: @bg;
+    border: 2px solid @inactive;
+    border-radius: 7px;
+    padding-bottom: 1px;
+    padding-left: 4px;
+    padding-right: 4px
+}
+
+#workspaces button {
+    min-width: 14px;
+    padding: 0 7px;
+    color: @inactive;
+    transition: color 0.3s ease;
+}
+
+#workspaces button.active {
+    color: @lavender;
+}
+
+#workspaces button:hover {
+    box-shadow: none;
+    text-shadow: none;
+    border: none;
+    background: @inactive;
+    color: @bg;
+}
+
+#clock {
+    background: @bg;
+    border: 2px solid @inactive;
+    border-radius: 7px;
+    padding-bottom: 1px;
+    padding-right: 10px;
+    padding-left: 10px
+}
+
+#memory {
+    background: @bg;
+    color: @green;
+    border: 2px solid @inactive;
+    padding-right: 9px;
+    padding-left: 9px;
+    padding-bottom: 1px;
+    border-radius: 7px
+}
+
+#cpu {
+    background: @bg;
+    color: @yellow;
+    border: 2px solid @inactive;
+    padding-right: 9px;
+    padding-left: 9px;
+    padding-bottom: 1px;
+    border-radius: 7px
+}
+
+#pulseaudio {
+    background: @bg;
+    color: @peach;
+    border: 2px solid @inactive;
+    padding-right: 9px;
+    padding-left: 9px;
+    padding-bottom: 1px;
+    border-radius: 7px
+}
+
+#network {
+    background: @bg;
+    color: @maroon;
+    border: 2px solid @inactive;
+    padding-right: 9px;
+    padding-left: 9px;
+    padding-bottom: 1px;
+    border-radius: 7px
+}
+
+#custom-power {
+    background: @bg;
+    border: 2px solid @inactive;
+    color: @red;
+    padding-right: 9px;
+    padding-left: 9px;
+    padding-bottom: 1px;
+    border-radius: 7px
+}
+
