@@ -6,3 +6,5 @@ background = #181818
 
 cursor-style = block
 shell-integration-features = no-cursor
+
+confirm-close-surface = false

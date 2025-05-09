@@ -19,7 +19,6 @@ because of chatgpt
 - actually working widgets in waybar
 - better greeter
 - better sleep mode
-- better file manager
 - timeshift and btrfs for backups
 - readup on zsh-autosuggestions and zsh-syntax-highlighting
 - custom fastfetch on terminal startup
