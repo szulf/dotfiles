@@ -6,11 +6,15 @@ copy_if_changed() {
 
     if [ $status == 0 ]; then
         echo "'$2' is up to date"
+
+        return 1
     else
         echo "removing '$2'"
         rm -r $2
         echo "copying '$1' into '$2'"
         cp -r $1 $2
+
+        return 0
     fi
 }
 
@@ -21,12 +25,10 @@ for file in *; do
     elif [ $file == "clang-format" ]; then
         copy_if_changed "./$file" "$HOME/.clang-format"
     else
-        if [ $file != "oh-my-posh-theme.json_old" ]; then
         copy_if_changed "./$file" "$HOME/.config/$file"
-        fi
+        changed=$?
 
-
-        if [ $file == "hypr" ]; then
+        if [ $file == "hypr" ] && [ $changed == 0 ]; then
             hyprctl reload
         fi
     fi

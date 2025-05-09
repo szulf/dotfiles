@@ -7,6 +7,8 @@ because of chatgpt
 - setup scripts
 - nvim config
 - hyprland config
+- waybar config
+- rofi config
 - zsh and oh-my-posh config
 
 <!-- ## installation -->
@@ -14,10 +16,11 @@ because of chatgpt
 <!-- that **should** work -->
 
 ## todo
-- wallpaper
-- better app launcher
+- actually working widgets in waybar
 - better greeter
 - better sleep mode
+- better file manager
 - timeshift and btrfs for backups
 - readup on zsh-autosuggestions and zsh-syntax-highlighting
-- fastfetch on terminal startup
+- custom fastfetch on terminal startup
+- qutebrowser config

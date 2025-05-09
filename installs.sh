@@ -1,19 +1,21 @@
 #!/usr/bin/bash
 
 install() {
-    sudo pacman -S --needed --noconfirm "$@"
+    sudo pacman -Sy --needed --noconfirm "$@"
 }
 
 install_aur() {
-    paru -S --needed --noconfirm "$@"
+    paru -Sy --needed --noconfirm "$@"
 }
 
 uninstall() {
-    sudo pacman -Rns --noconfirm "$@"
+    for item in "$@"; do
+        sudo pacman -Rns --noconfirm $item
+    done
 }
 
 to_install=(
-    base-devel git 
+    base-devel git
     qutebrowser python-adblock
     ghostty
     mpv yt-dlp ffmpeg
@@ -21,8 +23,9 @@ to_install=(
     neovim wl-clipboard
     unzip
     zsh
-    waybar
+    waybar hyprpaper rofi
     noto-fonts-emoji noto-fonts-cjk ttf-font-awesome
+    gimp
 )
 
 to_install_aur=(
@@ -32,6 +35,7 @@ to_install_aur=(
 
 to_uninstall=(
     kitty
+    wofi
 )
 
 install ${to_install[@]}
