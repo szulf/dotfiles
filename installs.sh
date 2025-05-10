@@ -28,6 +28,7 @@ to_install=(
     gimp
     pavucontrol
     nautilus
+    cmake clang
 )
 
 to_install_aur=(

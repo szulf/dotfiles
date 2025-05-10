@@ -35,3 +35,20 @@ autoload edit-command-line
 zle -N edit-command-line
 bindkey "^X^E" edit-command-line
 
+export GTEST_COLOR=1
+
+autoload -U colors && colors
+
+zstyle ':completion:*' list-colors \
+  'di=34'       \
+  'ex=32'       \
+  'ln=35'       \
+  'pi=33'       \
+  'so=36'       \
+  'bd=33'       \
+  'cd=33'       \
+  'su=37'       \
+  'sg=30'       \
+  'tw=34'       \
+  'ow=34'       \
+  'st=37'

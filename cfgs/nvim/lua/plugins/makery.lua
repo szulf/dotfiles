@@ -8,6 +8,10 @@ return {
             ['~/dotfiles'] = {
                 build = { makeprg = './dotfiles.sh' }
             },
+
+            ['~/projects/interpreter-in-cpp'] = {
+                build = { makeprg = 'cmake --build build' }
+            },
         }
 
         Map('<leader>mk', function() vim.cmd('Mbuild') end, 'build the current project')

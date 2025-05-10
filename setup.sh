@@ -13,3 +13,4 @@ fc-cache
 if [ $SHELL != "/usr/bin/zsh" ]; then
     sudo chsh -s /usr/bin/zsh
 fi
+
