@@ -16,7 +16,6 @@ because of chatgpt
 <!-- that **should** work -->
 
 ## todo
-- actually working widgets in waybar
 - better greeter
 - better sleep mode
 - timeshift and btrfs for backups

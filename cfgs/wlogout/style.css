@@ -1,0 +1,56 @@
+@import url("./colors.css");
+
+* {
+    all: unset;
+    font-family: "JetBrains Mono", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    background-image: none;
+    box-shadow: none;
+    color: @fg;
+}
+
+window {
+    background-size: cover;
+    font-size: 20pt;
+    background-color: rgba(24, 24, 37, 0.8);
+}
+
+button {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20%;
+    background-color: transparent;
+    border-radius: 80px;
+    border: none;
+}
+
+button:hover {
+    background-size: 30%;
+    background-color: @bg;
+    margin: 30px;
+    border-radius: 80px;
+    box-shadow: 0 0 50px #000;
+}
+
+#logout {
+    margin: 10px;
+    border-radius: 20px;
+    background-image: url("icons/logout.png");
+}
+
+#suspend {
+    margin: 10px;
+    border-radius: 20px;
+    background-image: url("icons/suspend.png");
+}
+
+#shutdown {
+    margin: 10px;
+    border-radius: 20px;
+    background-image: url("icons/shutdown.png");
+}
+
+#reboot {
+    margin: 10px;
+    border-radius: 20px;
+    background-image: url("icons/reboot.png");
+}

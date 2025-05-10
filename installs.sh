@@ -21,7 +21,7 @@ to_install=(
     mpv yt-dlp ffmpeg
     python
     neovim wl-clipboard
-    unzip btop
+    unzip btop ripgrep
     zsh
     waybar hyprpaper rofi
     noto-fonts-emoji noto-fonts-cjk ttf-font-awesome
@@ -33,6 +33,7 @@ to_install=(
 to_install_aur=(
     spotify
     oh-my-posh
+    wlogout
 )
 
 to_uninstall=(

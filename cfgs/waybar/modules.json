@@ -33,5 +33,6 @@
         "format": "<span size='x-large'>󰐥</span>",
         "tooltip": true,
         "tooltip-format": "Power menu",
+        "on-click": "wlogout -b 4",
     },
 }
