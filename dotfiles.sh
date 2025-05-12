@@ -24,11 +24,12 @@ for file in *; do
         copy_if_changed "./$file" "$HOME/.zshrc"
     elif [ $file == "clang-format" ]; then
         copy_if_changed "./$file" "$HOME/.clang-format"
+    elif [ $file == "gtk-3.0" ]; then
+        copy_if_changed "./$file" "$HOME/.themes/Catppuccin-Dark"
     else
         copy_if_changed "./$file" "$HOME/.config/$file"
-        changed=$?
 
-        if [ $file == "hypr" ] && [ $changed == 0 ]; then
+        if [ "$file" == "hypr" ] && [ "$changed" == 0 ]; then
             hyprctl reload
         fi
     fi

@@ -37,8 +37,6 @@ bindkey "^X^E" edit-command-line
 
 export GTEST_COLOR=1
 
-autoload -U colors && colors
-
 zstyle ':completion:*' list-colors \
   'di=34'       \
   'ex=32'       \
@@ -52,3 +50,11 @@ zstyle ':completion:*' list-colors \
   'tw=34'       \
   'ow=34'       \
   'st=37'
+
+export C=/usr/bin/clang
+export CXX=/usr/bin/clang++
+
+
+if [ "$(tput cols)" -ge 50 ] && [ "$(tput lines)" -ge 15 ]; then
+    fastfetch
+fi

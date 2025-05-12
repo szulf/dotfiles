@@ -16,7 +16,6 @@ uninstall() {
 
 to_install=(
     base-devel git
-    qutebrowser python-adblock
     ghostty
     mpv yt-dlp ffmpeg
     python
@@ -29,12 +28,16 @@ to_install=(
     pavucontrol
     nautilus
     cmake clang
+    cloc
+    fastfetch
+    evince
 )
 
 to_install_aur=(
     spotify
     oh-my-posh
     wlogout
+    brave-bin
 )
 
 to_uninstall=(

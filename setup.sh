@@ -14,3 +14,5 @@ if [ $SHELL != "/usr/bin/zsh" ]; then
     sudo chsh -s /usr/bin/zsh
 fi
 
+# set gtk-3.0 theme
+gsettings set org.gnome.desktop.interface gtk-theme 'Catppuccin-Dark'

@@ -16,9 +16,7 @@ because of chatgpt
 <!-- that **should** work -->
 
 ## todo
+- timeshift and btrfs for backups
 - better greeter
 - better sleep mode
-- timeshift and btrfs for backups
 - readup on zsh-autosuggestions and zsh-syntax-highlighting
-- custom fastfetch on terminal startup
-- qutebrowser config

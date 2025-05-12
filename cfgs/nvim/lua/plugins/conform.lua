@@ -19,7 +19,7 @@ return {
 
         formatters = {
             clang_format = {
-                prepend_args = { '-style=file:/home/user/.clang-format' },
+                prepend_args = { '-style=file:/home/szulf/.clang-format' },
             },
         },
     },
