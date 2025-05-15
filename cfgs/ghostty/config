@@ -1,4 +1,5 @@
 font-family = "Hurmit Nerd Font Mono"
+font-size = 11
 
 theme = catppuccin-mocha
 background-opacity = 0.6

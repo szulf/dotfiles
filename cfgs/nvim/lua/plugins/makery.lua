@@ -12,6 +12,10 @@ return {
             ['~/projects/interpreter-in-cpp'] = {
                 build = { makeprg = 'cmake --build build' }
             },
+
+            ['~/projects/handmade-hero'] = {
+                build = { makeprg = './build.sh' }
+            },
         }
 
         Map('<leader>mk', function() vim.cmd('Mbuild') end, 'build the current project')

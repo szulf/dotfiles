@@ -31,6 +31,8 @@ to_install=(
     cloc
     fastfetch
     evince
+    wine
+    gdb
 )
 
 to_install_aur=(
