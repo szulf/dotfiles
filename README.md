@@ -17,6 +17,5 @@ because of chatgpt
 
 ## todo
 - timeshift and btrfs for backups
-- better greeter(sddm)(catppuccin has a theme ready for u)
-- better sleep mode
+- sleep mode(screen saver)
 - readup on zsh-autosuggestions and zsh-syntax-highlighting

@@ -19,16 +19,5 @@ return {
         fuzzy = {
             implementation = 'lua',
         },
-
-        completion = {
-            menu          = {
-                border = "single",
-            },
-            documentation = {
-                window = {
-                    border = "single",
-                },
-            },
-        },
     },
 }

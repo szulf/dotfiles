@@ -5,7 +5,7 @@ install() {
 }
 
 install_aur() {
-    paru -Sy --needed --noconfirm "$@"
+    paru -Sy --needed --noconfirm --batchinstall "$@"
 }
 
 uninstall() {
@@ -33,6 +33,9 @@ to_install=(
     evince
     wine
     gdb
+    mingw-w64
+    qt6-svg qt6-declarative qt5-quickcontrols2
+    wlr-randr
 )
 
 to_install_aur=(

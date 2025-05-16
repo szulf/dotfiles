@@ -13,9 +13,8 @@ return {
             callback = function(event)
                 Map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
                 Map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-                Map('<leader>ds', function()
-                    vim.diagnostic.open_float({ border = 'single' })
-                end, 'Show the whole diagnostic msg')
+                Map('<leader>ds', vim.diagnostic.open_float, 'Show the whole diagnostic msg')
+                Map('K', vim.lsp.buf.hover, '[C]ode [A]ction')
 
                 local client = vim.lsp.get_client_by_id(event.data.client_id)
                 if client and client.server_capabilities.documentHighlightProvider then

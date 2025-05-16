@@ -14,7 +14,6 @@ window#waybar {
 #workspaces {
     background: @bg;
     border: 2px solid @inactive;
-    border-radius: 7px;
     padding-bottom: 1px;
     padding-left: 4px;
     padding-right: 4px
@@ -42,7 +41,6 @@ window#waybar {
 #clock {
     background: @bg;
     border: 2px solid @inactive;
-    border-radius: 7px;
     padding-bottom: 1px;
     padding-right: 10px;
     padding-left: 10px
@@ -55,7 +53,6 @@ window#waybar {
     padding-right: 9px;
     padding-left: 9px;
     padding-bottom: 1px;
-    border-radius: 7px
 }
 
 #cpu {
@@ -65,7 +62,6 @@ window#waybar {
     padding-right: 9px;
     padding-left: 9px;
     padding-bottom: 1px;
-    border-radius: 7px
 }
 
 #pulseaudio {
@@ -75,7 +71,6 @@ window#waybar {
     padding-right: 9px;
     padding-left: 9px;
     padding-bottom: 1px;
-    border-radius: 7px
 }
 
 #network {
@@ -85,7 +80,6 @@ window#waybar {
     padding-right: 9px;
     padding-left: 9px;
     padding-bottom: 1px;
-    border-radius: 7px
 }
 
 #custom-power {
@@ -95,6 +89,5 @@ window#waybar {
     padding-right: 9px;
     padding-left: 9px;
     padding-bottom: 1px;
-    border-radius: 7px
 }
 
