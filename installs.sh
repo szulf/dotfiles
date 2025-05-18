@@ -5,12 +5,12 @@ install() {
 }
 
 install_aur() {
-    paru -Sy --needed --noconfirm --batchinstall "$@"
+    paru -Sy --needed --noconfirm "$@"
 }
 
 uninstall() {
     for item in "$@"; do
-        sudo pacman -Rns --noconfirm $item
+        sudo pacman -Rns --noconfirm "$item"
     done
 }
 
@@ -23,7 +23,7 @@ to_install=(
     unzip btop ripgrep
     zsh
     waybar hyprpaper rofi
-    noto-fonts-emoji noto-fonts-cjk ttf-font-awesome
+    noto-fonts-emoji noto-fonts-cjk ttf-font-awesome ttf-jetbrains-mono
     gimp
     pavucontrol
     nautilus
@@ -51,17 +51,17 @@ to_uninstall=(
     dolphin
 )
 
-install ${to_install[@]}
-uninstall ${to_uninstall[@]}
+install "${to_install[@]}"
+uninstall "${to_uninstall[@]}"
 
 # install paru
 if [ ! -d ~/installs/paru ]; then
     curr_dir="$(pwd)"
-    cd $HOME/installs
+    cd "$HOME/installs"
     git clone https://aur.archlinux.org/paru.git
     cd paru
     makepkg -si
-    cd $curr_dir
+    cd "$curr_dir"
 fi
 
-install_aur ${to_install_aur[@]}
+install_aur "${to_install_aur[@]}"

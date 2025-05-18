@@ -1,9 +1,15 @@
 @import url("./colors.css");
 
 * {
-    font-family: JetBrains Mono;
+    font-family: "JetBrains Mono", "Font Awesome 6 Free Solid", sans-serif;
     font-size: 12pt;
     font-weight: 400;
+}
+
+#workspaces, #clock, #memory, #cpu, #pulseaudio, #network, #custom-power {
+    padding: 5px 10px;
+    border: 2px solid @inactive;
+    background: @bg;
 }
 
 window#waybar {
@@ -12,11 +18,7 @@ window#waybar {
 }
 
 #workspaces {
-    background: @bg;
-    border: 2px solid @inactive;
-    padding-bottom: 1px;
-    padding-left: 4px;
-    padding-right: 4px
+    padding: 5px;
 }
 
 #workspaces button {
@@ -34,60 +36,27 @@ window#waybar {
     box-shadow: none;
     text-shadow: none;
     border: none;
+    border-radius: 0;
     background: @inactive;
     color: @bg;
 }
 
-#clock {
-    background: @bg;
-    border: 2px solid @inactive;
-    padding-bottom: 1px;
-    padding-right: 10px;
-    padding-left: 10px
-}
-
 #memory {
-    background: @bg;
     color: @green;
-    border: 2px solid @inactive;
-    padding-right: 9px;
-    padding-left: 9px;
-    padding-bottom: 1px;
 }
 
 #cpu {
-    background: @bg;
     color: @yellow;
-    border: 2px solid @inactive;
-    padding-right: 9px;
-    padding-left: 9px;
-    padding-bottom: 1px;
 }
 
 #pulseaudio {
-    background: @bg;
     color: @peach;
-    border: 2px solid @inactive;
-    padding-right: 9px;
-    padding-left: 9px;
-    padding-bottom: 1px;
 }
 
 #network {
-    background: @bg;
     color: @maroon;
-    border: 2px solid @inactive;
-    padding-right: 9px;
-    padding-left: 9px;
-    padding-bottom: 1px;
 }
 
 #custom-power {
-    background: @bg;
-    border: 2px solid @inactive;
     color: @red;
-    padding-right: 9px;
-    padding-left: 9px;
-    padding-bottom: 1px;
 }
-

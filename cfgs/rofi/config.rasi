@@ -26,7 +26,6 @@ window {
     border: 1px solid;
 
     enabled: true;
-    border-radius: 7px;
     cursor: "default";
     background-color: @background;
 }
@@ -44,7 +43,6 @@ inputbar {
     enabled: true;
     spacing: 10px;
     padding: 15px;
-    border-radius: 7px;
     background-color: @background-alt;
     text-color: @foreground;
     children: [ "textbox-prompt-colon", "entry" ];
@@ -90,7 +88,6 @@ element {
     enabled: true;
     spacing: 15px;
     padding: 8px;
-    border-radius: 7px;
     background-color: transparent;
     text-color: @foreground;
     cursor: pointer;
@@ -131,7 +128,6 @@ message {
 
 textbox {
     padding: 15px;
-    border-radius: 7px;
     background-color: @background-alt;
     text-color: @foreground;
     vertical-align: 0.5;
@@ -140,7 +136,6 @@ textbox {
 
 error-message {
     padding: 15px;
-    border-radius: 7px;
     background-color: @background;
     text-color: @foreground;
 }

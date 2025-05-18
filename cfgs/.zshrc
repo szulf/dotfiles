@@ -54,7 +54,12 @@ zstyle ':completion:*' list-colors \
 export C=/usr/bin/clang
 export CXX=/usr/bin/clang++
 
+export PATH="$PATH:/home/szulf/installs"
 
 if [ "$(tput cols)" -ge 50 ] && [ "$(tput lines)" -ge 15 ]; then
     fastfetch
 fi
+
+# emacs config
+export PATH="$PATH:/home/szulf/.config/emacs/bin"
+alias emacs="emacsclient -c -a 'emacs'"

@@ -2,37 +2,37 @@
     "clock": {
         "format": "{:%R}",
         "tooltip": true,
-        "tooltip-format": "{:%A %d.%m.%Y}",
+        "tooltip-format": "{:%A %d.%m.%Y}"
     },
 
     "memory": {
-        "format": "{used}GB <span size='x-large'></span>",
-        "on-click": "ghostty -e btop &",
+        "format": "{used}GB \uf538",
+        "on-click": "ghostty -e btop &"
     },
 
     "cpu": {
-        "format": "{usage}% <span size='x-large'></span>",
-        "on-click": "ghostty -e btop &",
+        "format": "{usage}% \uf2db",
+        "on-click": "ghostty -e btop &"
     },
 
     "pulseaudio": {
-        "format": "{volume}% <span size='x-large'>󰕾</span>",
+        "format": "{volume}% \uf028",
         "tooltip-format": "Volume ({volume}%)",
-        "on-click": "pavucontrol",
+        "on-click": "pavucontrol"
     },
 
     "network": {
-        "format": "{bandwidthDownBytes} <span size='x-large'>󰤨</span>",
+        "format": "{bandwidthDownBytes} \uf1eb",
         "interval": 10,
-        "format-disconnected": "<span size='x-large'>󰤭</span>",
+        "format-disconnected": "\uf6ac",
         "tooltip-format": "{ifname} {ipaddr}",
-        "on-click": "ghostty -e nmtui &",
+        "on-click": "ghostty -e nmtui &"
     },
 
     "custom/power": {
-        "format": "<span size='x-large'>󰐥</span>",
+        "format": "\uf011",
         "tooltip": true,
         "tooltip-format": "Power menu",
-        "on-click": "wlogout -b 4",
-    },
+        "on-click": "wlogout -b 4"
+    }
 }
