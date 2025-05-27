@@ -11,9 +11,9 @@ return {
     ---@type blink.cmp.Config
     opts = {
         keymap = {
-            preset = 'default',
-            ['<C-space>'] = { 'show', 'accept' },
-            ['<C-k>'] = { 'show_documentation' },
+            preset = 'super-tab',
+            ['<C-j>'] = { 'select_next' },
+            ['<C-k>'] = { 'select_prev' },
         },
 
         fuzzy = {

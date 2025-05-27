@@ -7,7 +7,7 @@
 }
 
 #workspaces, #clock, #memory, #cpu, #pulseaudio, #network, #custom-power {
-    padding: 5px 10px;
+    padding: 8px 10px;
     border: 2px solid @inactive;
     background: @bg;
 }

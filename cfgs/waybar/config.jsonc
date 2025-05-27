@@ -2,7 +2,7 @@
     "include": "~/.config/waybar/modules.json",
     "layer": "top",
     "position": "top",
-    "margin": "5 20 0 20",
+    "margin": "5 8 0 8",
     "spacing": 5,
     "modules-left": [
         "hyprland/workspaces",

@@ -18,7 +18,7 @@ to_install=(
     base-devel git
     ghostty
     mpv yt-dlp ffmpeg
-    python
+    python python-pip
     neovim wl-clipboard
     unzip btop ripgrep
     zsh
@@ -36,6 +36,14 @@ to_install=(
     mingw-w64
     qt6-svg qt6-declarative qt5-quickcontrols2
     wlr-randr
+    nodejs npm
+    dotnet-runtime-8.0 dotnet-sdk-8.0 aspnet-runtime-8.0
+    dotnet-runtime dotnet-sdk aspnet-runtime
+    fuse2 fuse3
+    fd
+    tmux
+    lazygit
+    fzf
 )
 
 to_install_aur=(
@@ -43,6 +51,7 @@ to_install_aur=(
     oh-my-posh
     wlogout
     brave-bin
+    grimblast-git
 )
 
 to_uninstall=(

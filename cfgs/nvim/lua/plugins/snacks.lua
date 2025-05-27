@@ -45,12 +45,13 @@ neovim
     },
 
     keys = {
-        { '<leader>ff', function() Snacks.picker.files() end,            desc = 'find files' },
-        { '<leader>fg', function() Snacks.picker.grep() end,             desc = 'grep through files' },
-        { '<leader>fd', function() Snacks.picker.diagnostics() end,      desc = 'look through diagnostics' },
-        { 'gr',         function() Snacks.picker.lsp_references() end,   desc = 'look through lsp references' },
-        { 'gd',         function() Snacks.picker.lsp_definitions() end,  desc = 'look through lsp definitions' },
-        { 'gD',         function() Snacks.picker.lsp_declarations() end, desc = 'look through lsp declarations' },
-        { '<leader>fe', function() Snacks.explorer() end,                desc = 'open the file explorer' },
+        { '<leader><leader>', function() Snacks.picker.files() end,            desc = 'find files' },
+        { '<leader>pf',       function() Snacks.picker.files() end,            desc = 'find files' },
+        { '<leader>pg',       function() Snacks.picker.grep() end,             desc = 'grep through files' },
+        { '<leader>fd',       function() Snacks.picker.diagnostics() end,      desc = 'look through diagnostics' },
+        { 'gr',               function() Snacks.picker.lsp_references() end,   desc = 'look through lsp references' },
+        { 'gd',               function() Snacks.picker.lsp_definitions() end,  desc = 'look through lsp definitions' },
+        { 'gD',               function() Snacks.picker.lsp_declarations() end, desc = 'look through lsp declarations' },
+        { '<leader>fe',       function() Snacks.explorer() end,                desc = 'open the file explorer' },
     },
 }

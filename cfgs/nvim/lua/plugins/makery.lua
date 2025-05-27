@@ -5,7 +5,7 @@ return {
 
     config = function()
         vim.g.makery_config = {
-            ['~/dotfiles'] = {
+            ['~/projects/dotfiles'] = {
                 build = { makeprg = './dotfiles.sh' }
             },
 
