@@ -25,6 +25,7 @@ vim.opt.listchars = { trail = '·', tab = '> ' }
 vim.opt.showmode = false
 
 vim.opt.termguicolors = true
+vim.opt.guicursor = ''
 
 vim.opt.inccommand = 'split'
 

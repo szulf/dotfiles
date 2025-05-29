@@ -2,6 +2,7 @@ return {
     'folke/snacks.nvim',
 
     lazy = false,
+
     priority = 1000,
 
     opts = {
@@ -41,17 +42,24 @@ neovim
                     hidden = true,
                 },
             },
+
+            layout = {
+                preview = "main",
+                preset = "ivy",
+            },
         },
     },
 
-    keys = {
-        { '<leader><leader>', function() Snacks.picker.files() end,            desc = 'find files' },
-        { '<leader>pf',       function() Snacks.picker.files() end,            desc = 'find files' },
-        { '<leader>pg',       function() Snacks.picker.grep() end,             desc = 'grep through files' },
-        { '<leader>fd',       function() Snacks.picker.diagnostics() end,      desc = 'look through diagnostics' },
-        { 'gr',               function() Snacks.picker.lsp_references() end,   desc = 'look through lsp references' },
-        { 'gd',               function() Snacks.picker.lsp_definitions() end,  desc = 'look through lsp definitions' },
-        { 'gD',               function() Snacks.picker.lsp_declarations() end, desc = 'look through lsp declarations' },
-        { '<leader>fe',       function() Snacks.explorer() end,                desc = 'open the file explorer' },
-    },
+    config = function(_, opts)
+        local snacks = require('snacks')
+        snacks.setup(opts)
+
+        Map('<leader><leader>', snacks.picker.files, 'find files')
+        Map('<leader>pf', snacks.picker.files, 'find files')
+        Map('<leader>pg', snacks.picker.grep, 'grep through files')
+        Map('<leader>pd', Snacks.picker.diagnostics, 'diagnostics')
+        Map('gr', Snacks.picker.lsp_references, 'lsp references')
+        Map('gd', Snacks.picker.lsp_definitions, 'lsp definitions')
+        Map('gD', Snacks.picker.lsp_declarations, 'lsp declarations')
+    end,
 }

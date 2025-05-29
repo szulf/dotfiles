@@ -6,7 +6,7 @@ return {
     config = function()
         vim.g.makery_config = {
             ['~/projects/dotfiles'] = {
-                build = { makeprg = './dotfiles.sh' }
+                build = { makeprg = 'dotfiles.sh' }
             },
 
             ['~/projects/interpreter-in-cpp'] = {

@@ -63,3 +63,6 @@ fi
 export PATH="$PATH:$HOME/.dotnet/tools"
 export PATH="$PATH:$HOME/.config/emacs/bin"
 export PATH="$PATH:$HOME/home/szulf/.local/bin"
+export PATH="$PATH:$HOME/projects/dotfiles/scripts/"
+
+export DOT="$HOME/projects/dotfiles"

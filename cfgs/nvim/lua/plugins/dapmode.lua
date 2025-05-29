@@ -16,6 +16,8 @@ return {
         Map('<leader>dc', dap.continue, 'continue')
         Map('<leader>di', dap.step_into, 'step into')
         Map('<leader>dn', dap.step_over, 'step over')
+        Map('<leader>dr', dap.restart, 'restart')
+        Map('<leader>dq', dap.disconnect, 'disconnect')
 
         dap.adapters.gdb = {
             type = 'executable',

@@ -44,6 +44,7 @@ to_install=(
     tmux
     lazygit
     fzf
+    stow
 )
 
 to_install_aur=(
