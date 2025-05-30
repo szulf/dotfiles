@@ -11,10 +11,10 @@ return {
     config = function()
         vim.api.nvim_create_autocmd('LspAttach', {
             callback = function(event)
-                Map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-                Map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-                Map('<leader>ds', vim.diagnostic.open_float, 'Show the whole diagnostic msg')
-                Map('K', vim.lsp.buf.hover, '[C]ode [A]ction')
+                Map('<leader>ca', vim.lsp.buf.code_action, 'code action')
+                Map('<leader>cr', vim.lsp.buf.rename, 'rename')
+                Map('<leader>cd', vim.diagnostic.open_float, 'diagnostic under cursor')
+                Map('K', vim.lsp.buf.hover, 'hover')
 
                 local client = vim.lsp.get_client_by_id(event.data.client_id)
                 if client and client.server_capabilities.documentHighlightProvider then
