@@ -1,9 +1,0 @@
-font-family = "Hurmit Nerd Font Mono"
-font-size = 10
-
-theme = catppuccin-mocha
-
-cursor-style = block
-shell-integration-features = no-cursor
-
-confirm-close-surface = false

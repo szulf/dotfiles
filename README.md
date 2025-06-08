@@ -3,15 +3,15 @@
 switched to arch ):
 because of chatgpt
 
-## consists of
-- setup scripts
-- nvim config
-- hyprland config
-- waybar config
-- rofi config
-- zsh and oh-my-posh config
+back on i3 :D
 
-## todo
-- timeshift and btrfs for backups
-- sleep mode(screen saver)
-- put the hurmit font in a package
+now with gnu stow
+
+## consists of
+- setup script
+- nvim config
+- zsh and oh-my-posh config
+- tmux config
+- i3 config
+- alacritty config
+
