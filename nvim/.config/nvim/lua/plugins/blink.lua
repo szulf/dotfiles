@@ -1,23 +1,23 @@
 return {
-    'saghen/blink.cmp',
+  'saghen/blink.cmp',
 
-    version = '1.*',
+  version = '1.*',
 
-    dependencies = {
-        'rafamadriz/friendly-snippets',
+  dependencies = {
+    'rafamadriz/friendly-snippets',
+  },
+
+  ---@module 'blink.cmp'
+  ---@type blink.cmp.Config
+  opts = {
+    keymap = {
+      preset = 'super-tab',
+      ['<C-j>'] = { 'select_next' },
+      ['<C-k>'] = { 'select_prev' },
     },
 
-    ---@module 'blink.cmp'
-    ---@type blink.cmp.Config
-    opts = {
-        keymap = {
-            preset = 'super-tab',
-            ['<C-j>'] = { 'select_next' },
-            ['<C-k>'] = { 'select_prev' },
-        },
-
-        fuzzy = {
-            implementation = 'lua',
-        },
+    fuzzy = {
+      implementation = 'lua',
     },
+  },
 }
