@@ -1,0 +1,3 @@
+[submodule "dwm"]
+	path = dwm
+	url = git@github.com:szulf/dwm.git
