@@ -16,6 +16,10 @@ return {
       ['~/projects/handmade-hero'] = {
         build = { makeprg = './build.sh' }
       },
+
+      ['~/installs/4coder'] = {
+        build = { makeprg = './build.sh' }
+      },
     }
 
     Map('<leader>pc', function() vim.cmd('Mbuild') end, 'build the current project')

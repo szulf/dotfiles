@@ -1,12 +1,11 @@
 #!/bin/sh
 
-search_directories=(
-    $HOME/projects
-)
+search_dir=$HOME/projects
 
-name=$(find "${search_directories[@]}" -maxdepth 1 -mindepth 1 -type d | sed "s|^$HOME/||" | fzf)
 
-if [[ -z $name ]]; then
+name=$(find $search_dir -maxdepth 1 -mindepth 1 -type d | sed "s|^$HOME/||" | fzf)
+
+if [ -z $name ]; then
     exit
 fi
 

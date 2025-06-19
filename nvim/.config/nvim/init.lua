@@ -24,7 +24,7 @@ vim.opt.listchars = { trail = '·', tab = '> ' }
 
 vim.opt.showmode = true
 
-vim.opt.termguicolors = true
+vim.opt.termguicolors = false
 vim.opt.guicursor = ''
 
 vim.opt.inccommand = 'split'
@@ -60,3 +60,5 @@ if vim.g.neovide then
 end
 
 Map('<leader>rn', vim.lsp.buf.rename, 'rename a variable')
+
+vim.opt.iskeyword:remove('_')

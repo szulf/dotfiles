@@ -12,7 +12,7 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh-theme.json)"
+PS1="[%B%F{blue}%n@%m%f%b %F{green}%1~%f] "
 
 alias vim="nvim"
 alias ls="ls --color=auto"
@@ -65,3 +65,5 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 eval $(keychain --eval --quiet id_ed25519)
+
+export FZF_DEFAULT_OPTS="--color=16"

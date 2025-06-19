@@ -1,12 +1,14 @@
+#!/bin/bash
+
+# TODO(szulf): change this to a sh script instead of a bash script
+
 files=(
-    zsh
-    nvim
     alacritty
     clang-format
     git
-    i3
-    oh-my-posh
+    nvim
     tmux
+    zsh
 )
 
 stowit() {
