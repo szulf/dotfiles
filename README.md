@@ -11,5 +11,8 @@ now with gnu stow
 - zsh
 - tmux config
 - alacritty config
-- dwm and st config
+- dwm, dwmblocks and st config
 - doom emacs config
+
+## TODO
+- dmenu script to switch audio outputs
