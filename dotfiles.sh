@@ -5,6 +5,7 @@
 files=(
     alacritty
     clang-format
+    doom
     git
     nvim
     tmux

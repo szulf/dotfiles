@@ -12,3 +12,4 @@ now with gnu stow
 - tmux config
 - alacritty config
 - dwm and st config
+- doom emacs config
