@@ -11,4 +11,4 @@ now with gnu stow
 - zsh
 - tmux config
 - alacritty config
-
+- dwm and st config
