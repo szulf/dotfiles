@@ -16,3 +16,4 @@ now with gnu stow
 
 ## TODO
 - dmenu script to switch audio outputs
+- maybe remap C-BackSpace to C-W in st
