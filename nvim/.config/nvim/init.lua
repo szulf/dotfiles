@@ -1,5 +1,13 @@
-function Map(key, action, desc)
-  vim.keymap.set('n', key, action, { desc = desc })
+function Nmap(key, action)
+  vim.keymap.set('n', key, action)
+end
+
+function Imap(key, action)
+  vim.keymap.set('i', key, action)
+end
+
+function Cmap(key, action)
+  vim.keymap.set('c', key, action)
 end
 
 vim.g.mapleader = ' '
@@ -32,48 +40,80 @@ vim.opt.inccommand = 'split'
 vim.opt.colorcolumn = '101'
 
 vim.opt.hlsearch = true
-Map('<Esc>', function() vim.cmd('nohlsearch') end)
+Nmap('<Esc>', function() vim.cmd('nohlsearch') end)
+
+vim.opt.wildmenu = true
 
 vim.o.clipboard = 'unnamedplus'
 
--- Map('<C-h>', '<C-w><C-h>', 'Move to window [H]')
--- Map('<C-j>', '<C-w><C-j>', 'Move to window [J]')
--- Map('<C-k>', '<C-w><C-k>', 'Move to window [K]')
--- Map('<C-l>', '<C-w><C-l>', 'Move to window [L]')
-Map('<leader>wh', '<C-w><C-h>', 'Move to window [H]')
-Map('<leader>wj', '<C-w><C-j>', 'Move to window [J]')
-Map('<leader>wk', '<C-w><C-k>', 'Move to window [K]')
-Map('<leader>wl', '<C-w><C-l>', 'Move to window [L]')
+vim.g.netrw_banner = 0
+vim.g.netrw_keepdir = 0
+vim.g.netrw_localcopydircmd = "cp -r"
+Nmap('<leader>fd', function() vim.cmd('Ex') end)
 
-Map('<leader>wv', '<C-w><C-v>', 'Split window vertically')
-Map('<leader>ws', '<C-w><C-s>', 'Split window horizontally')
-Map('<leader>wq', '<C-w><C-q>', 'Close window')
+vim.o.path = vim.o.path .. "**"
 
-Map('<C-d>', '<C-d>zz', 'Go down and center')
-Map('<C-u>', '<C-u>zz', 'Go up and center')
+Nmap('<leader>wh', '<C-w><C-h>')
+Nmap('<leader>wj', '<C-w><C-j>')
+Nmap('<leader>wk', '<C-w><C-k>')
+Nmap('<leader>wl', '<C-w><C-l>')
+Nmap('<leader>wv', '<C-w><C-v>')
+Nmap('<leader>ws', '<C-w><C-s>')
+Nmap('<leader>wq', '<C-w><C-q>')
 
-Map('<C-Space>', '<C-6>', 'Switch between two buffers')
+Nmap('<C-d>', '<C-d>zz')
+Nmap('<C-u>', '<C-u>zz')
+
+Nmap('<C-j>', '<C-n>')
+Nmap('<C-k>', '<C-p>')
+Imap('<C-j>', '<C-n>')
+Imap('<C-k>', '<C-p>')
+Cmap('<C-j>', '<C-n>')
+Cmap('<C-k>', '<C-p>')
 
 vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight text after yanking',
   callback = function()
     vim.highlight.on_yank()
   end
 })
 
-require('config.lazy')
-
-if vim.g.neovide then
-  vim.opt.guifont = 'JetBrains Mono NL:h11'
-end
-
-Map('<leader>rn', vim.lsp.buf.rename, 'rename a variable')
-
 vim.opt.iskeyword:remove('_')
-
-Map('*',
+Nmap('*',
 function()
   vim.opt.iskeyword:append('_')
   vim.cmd('normal! *')
   vim.opt.iskeyword:remove('_')
-end, 'Proper search for words under cursor')
+end)
+
+Nmap('<leader><leader>', ':find ')
+Nmap('<leader>fe', ':e ')
+Nmap('<leader>pg', ':grep ')
+Nmap('<leader>pc', function() vim.cmd('make') end)
+
+local makes = {
+  ['/home/szulf/projects/handmade-hero'] = './build.sh'
+}
+
+vim.api.nvim_create_autocmd('VimEnter', {
+  callback = function()
+    local path = vim.fn.expand("%:p:h")
+    for k, v in pairs(makes) do
+      if path == k then
+        vim.opt.makeprg = v
+      end
+    end
+  end
+})
+
+local function set_my_todos()
+    vim.cmd([[ syn match myTodos /\%(TODO\)\|\%(NOTE\)/ ]])
+    vim.cmd([[ hi link myTodos Todo ]])
+end
+
+vim.api.nvim_create_autocmd({'BufEnter', 'FileType'}, {
+  callback = function()
+    set_my_todos()
+  end
+})
+
+require('config.lazy')

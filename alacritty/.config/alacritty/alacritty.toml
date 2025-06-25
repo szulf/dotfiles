@@ -1,9 +1,9 @@
 [font]
-size = 11
+size = 9
 
 [font.normal]
 family = "JetBrains Mono"
 style = "Regular"
 
 [colors.primary]
-background = "#181818"
+background = "#000000"

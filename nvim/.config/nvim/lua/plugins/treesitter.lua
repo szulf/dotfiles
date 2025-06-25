@@ -2,7 +2,7 @@ return {
   'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',
   opts = {
-    ensure_installed = { 'lua', 'cpp', 'glsl', 'vim', 'vimdoc', 'markdown', 'bash' },
+    ensure_installed = { 'lua', 'cpp', 'vimdoc' },
     auto_install = true,
     highlight = { enable = true },
   },
@@ -16,5 +16,6 @@ return {
         vim.cmd('setlocal filetype=glsl')
       end,
     })
+
   end,
 }
