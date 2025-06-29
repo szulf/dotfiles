@@ -8,7 +8,7 @@ return {
   opts = {
     overrides = {
       SignColumn = { bg = '#000000' },
-      Normal = { bg = '#000000' },
+      Normal = { bg = '#181818' },
       Delimiter = { fg = vim.api.nvim_get_hl_by_name('@text', true).foreground },
       Function = { fg = vim.api.nvim_get_hl_by_name('@text', true).foreground },
       ['@function'] = { fg = vim.api.nvim_get_hl_by_name('@text', true).foreground },
@@ -25,6 +25,7 @@ return {
       ['@lsp.type.parameter'] = { fg = vim.api.nvim_get_hl_by_name('@text', true).foreground },
       ['@variable.parameter'] = { fg = vim.api.nvim_get_hl_by_name('@text', true).foreground },
       ['@variable.parameter.builtin'] = { fg = vim.api.nvim_get_hl_by_name('@text', true).foreground },
+      ['@variable.member'] = { fg = vim.api.nvim_get_hl_by_name('@text', true).foreground },
     },
   },
 
