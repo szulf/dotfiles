@@ -10,6 +10,10 @@ function Cmap(key, action)
   vim.keymap.set('c', key, action)
 end
 
+local function get_filename_from_path(path)
+  return path:match("^.+[\\/](.+)$") or path
+end
+
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -47,11 +51,18 @@ vim.opt.wildmenu = true
 vim.o.clipboard = 'unnamedplus'
 
 vim.g.netrw_banner = 0
+vim.g.netrw_localcopydircmd = 'cp -r'
 vim.g.netrw_keepdir = 0
-vim.g.netrw_localcopydircmd = "cp -r"
 Nmap('<leader>fd', function() vim.cmd('Ex') end)
 
-vim.o.path = vim.o.path .. "**"
+local blacklist_dirs = { build = true, ['.git'] = true }
+vim.o.path = vim.o.path .. ',' .. vim.fn.getcwd()
+for i, v in ipairs(vim.split(vim.fn.glob(vim.fn.expand('%:p:h') .. '/**'),
+                             '\n', { trimempty = true })) do
+  if vim.fn.isdirectory(v) == 1 and blacklist_dirs[get_filename_from_path(v)] == nil then
+    vim.o.path = vim.o.path .. ',' .. v
+  end
+end
 
 Nmap('<leader>wh', '<C-w><C-h>')
 Nmap('<leader>wj', '<C-w><C-j>')
@@ -70,6 +81,18 @@ Imap('<C-j>', '<C-n>')
 Imap('<C-k>', '<C-p>')
 Cmap('<C-j>', '<C-n>')
 Cmap('<C-k>', '<C-p>')
+
+vim.api.nvim_create_autocmd('InsertEnter', {
+  callback = function()
+    vim.opt.iskeyword:append('_')
+  end
+})
+
+vim.api.nvim_create_autocmd('InsertLeavePre', {
+  callback = function()
+    vim.opt.iskeyword:remove('_')
+  end
+})
 
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
@@ -91,7 +114,8 @@ Nmap('<leader>pg', ':grep ')
 Nmap('<leader>pc', function() vim.cmd('make') end)
 
 local makes = {
-  ['/home/szulf/projects/handmade-hero'] = './build.sh'
+  ['/home/szulf/projects/handmade-hero'] = './build.sh',
+  ['C:\\Users\\szymo\\projects\\handmade-hero'] = '.\\build.bat',
 }
 
 vim.api.nvim_create_autocmd('VimEnter', {
@@ -106,8 +130,14 @@ vim.api.nvim_create_autocmd('VimEnter', {
 })
 
 local function set_my_todos()
-    vim.cmd([[ syn match myTodos /\%(TODO\)\|\%(NOTE\)/ ]])
-    vim.cmd([[ hi link myTodos Todo ]])
+  local red = vim.api.nvim_get_hl(0, { name = 'GruvboxRed' }).fg
+  local yellow = vim.api.nvim_get_hl(0, { name = 'GruvboxYellow' }).fg
+
+  vim.cmd([[ syntax match MyTODO /\<TODO\>/ ]])
+  vim.api.nvim_set_hl(0, 'MyTODO', { bg = red, bold = true, })
+
+  vim.cmd([[ syntax match MyNOTE /\<NOTE\>/ ]])
+  vim.api.nvim_set_hl(0, 'MyNOTE', { bg = yellow, bold = true, })
 end
 
 vim.api.nvim_create_autocmd({'BufEnter', 'FileType'}, {
@@ -115,5 +145,13 @@ vim.api.nvim_create_autocmd({'BufEnter', 'FileType'}, {
     set_my_todos()
   end
 })
+
+if vim.loop.os_uname().sysname == "Windows_NT" then
+  vim.opt.shell = 'powershell.exe'
+  vim.opt.shellcmdflag = [[-NoLogo -NonInteractive -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new();$PSDefaultParameterValues['Out-File:Encoding']='utf8';]]
+  vim.opt.shellxquote = ''
+end
+
+Nmap('<leader>bk', function() vim.cmd('bd') end)
 
 require('config.lazy')
