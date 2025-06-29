@@ -129,20 +129,16 @@ vim.api.nvim_create_autocmd('VimEnter', {
   end
 })
 
-local function set_my_todos()
-  local red = vim.api.nvim_get_hl(0, { name = 'GruvboxRed' }).fg
-  local yellow = vim.api.nvim_get_hl(0, { name = 'GruvboxYellow' }).fg
-
-  vim.cmd([[ syntax match MyTODO /\<TODO\>/ ]])
-  vim.api.nvim_set_hl(0, 'MyTODO', { bg = red, bold = true, })
-
-  vim.cmd([[ syntax match MyNOTE /\<NOTE\>/ ]])
-  vim.api.nvim_set_hl(0, 'MyNOTE', { bg = yellow, bold = true, })
-end
-
 vim.api.nvim_create_autocmd({'BufEnter', 'FileType'}, {
   callback = function()
-    set_my_todos()
+    local red = vim.api.nvim_get_hl(0, { name = 'GruvboxRed' }).fg
+    local yellow = vim.api.nvim_get_hl(0, { name = 'GruvboxYellow' }).fg
+
+    vim.cmd([[ syntax match MyTODO /\<TODO\>/ ]])
+    vim.api.nvim_set_hl(0, 'MyTODO', { bg = red, bold = true, })
+
+    vim.cmd([[ syntax match MyNOTE /\<NOTE\>/ ]])
+    vim.api.nvim_set_hl(0, 'MyNOTE', { bg = yellow, bold = true, })
   end
 })
 
