@@ -55,15 +55,6 @@ vim.g.netrw_localcopydircmd = 'cp -r'
 vim.g.netrw_keepdir = 0
 Nmap('<leader>fd', function() vim.cmd('Ex') end)
 
-local blacklist_dirs = { build = true, ['.git'] = true }
-vim.o.path = vim.o.path .. ',' .. vim.fn.getcwd()
-for i, v in ipairs(vim.split(vim.fn.glob(vim.fn.expand('%:p:h') .. '/**'),
-                             '\n', { trimempty = true })) do
-  if vim.fn.isdirectory(v) == 1 and blacklist_dirs[get_filename_from_path(v)] == nil then
-    vim.o.path = vim.o.path .. ',' .. v
-  end
-end
-
 Nmap('<leader>wh', '<C-w><C-h>')
 Nmap('<leader>wj', '<C-w><C-j>')
 Nmap('<leader>wk', '<C-w><C-k>')
@@ -132,13 +123,17 @@ vim.api.nvim_create_autocmd('VimEnter', {
 vim.api.nvim_create_autocmd({'BufEnter', 'FileType'}, {
   callback = function()
     local red = vim.api.nvim_get_hl(0, { name = 'GruvboxRed' }).fg
+    local green = vim.api.nvim_get_hl(0, { name = 'GruvboxGreen' }).fg
     local yellow = vim.api.nvim_get_hl(0, { name = 'GruvboxYellow' }).fg
 
     vim.cmd([[ syntax match MyTODO /\<TODO\>/ ]])
     vim.api.nvim_set_hl(0, 'MyTODO', { bg = red, bold = true, })
 
     vim.cmd([[ syntax match MyNOTE /\<NOTE\>/ ]])
-    vim.api.nvim_set_hl(0, 'MyNOTE', { bg = yellow, bold = true, })
+    vim.api.nvim_set_hl(0, 'MyNOTE', { bg = green, bold = true, })
+
+    vim.cmd([[ syntax match MyIMPORTANT /\<IMPORTANT\>/ ]])
+    vim.api.nvim_set_hl(0, 'MyIMPORTANT', { bg = yellow, bold = true, })
   end
 })
 
@@ -151,3 +146,24 @@ end
 Nmap('<leader>bk', function() vim.cmd('bd') end)
 
 require('config.lazy')
+
+local function set_path(dirs, dir_name, blacklist_dirs)
+  for _, dir in ipairs(vim.fn.readdir(dir_name)) do
+    local absolute_dir = dir_name .. '/' .. dir
+    if vim.fn.getftype(absolute_dir) == 'dir' and blacklist_dirs[dir] ~= true then
+      table.insert(dirs, absolute_dir)
+      vim.o.path = vim.o.path .. ',' .. absolute_dir
+      set_path(dirs, absolute_dir, blacklist_dirs)
+    end
+  end
+end
+
+local blacklist_dirs = { ['build'] = true, ['.git'] = true }
+vim.o.path = vim.o.path .. ',' .. vim.fn.getcwd()
+local dirs = {}
+
+vim.ui.input({ prompt = 'Recurse through directories? Y/N' }, function(input)
+  if vim.fn.tolower(input) == 'y' then
+    set_path(dirs, vim.fn.expand('%:p:h'), blacklist_dirs)
+  end
+end)
