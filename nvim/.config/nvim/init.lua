@@ -52,7 +52,8 @@ vim.o.clipboard = 'unnamedplus'
 
 vim.g.netrw_banner = 0
 vim.g.netrw_localcopydircmd = 'cp -r'
-vim.g.netrw_keepdir = 0
+-- NOTE(szulf): still not sure about this netrw_keepdir
+vim.g.netrw_keepdir = 1
 Nmap('<leader>fd', function() vim.cmd('Ex') end)
 
 Nmap('<leader>wh', '<C-w><C-h>')
@@ -107,18 +108,13 @@ Nmap('<leader>pc', function() vim.cmd('make') end)
 local makes = {
   ['/home/szulf/projects/handmade-hero'] = './build.sh',
   ['C:\\Users\\szymo\\projects\\handmade-hero'] = '.\\build.bat',
+  ['/home/szulf/projects/game'] = './build.sh',
 }
 
-vim.api.nvim_create_autocmd('VimEnter', {
-  callback = function()
-    local path = vim.fn.expand("%:p:h")
-    for k, v in pairs(makes) do
-      if path == k then
-        vim.opt.makeprg = v
-      end
-    end
-  end
-})
+local cwd = vim.fn.getcwd()
+if makes[cwd] ~= nil then
+  vim.opt.makeprg = 'cd ' .. cwd .. ' && ' .. makes[cwd]
+end
 
 vim.api.nvim_create_autocmd({'BufEnter', 'FileType'}, {
   callback = function()
@@ -162,8 +158,14 @@ local blacklist_dirs = { ['build'] = true, ['.git'] = true }
 vim.o.path = vim.o.path .. ',' .. vim.fn.getcwd()
 local dirs = {}
 
-vim.ui.input({ prompt = 'Recurse through directories? Y/N' }, function(input)
-  if vim.fn.tolower(input) == 'y' then
-    set_path(dirs, vim.fn.expand('%:p:h'), blacklist_dirs)
-  end
-end)
+if cwd:find('projects') ~= nil then
+  set_path(dirs, vim.fn.expand('%:p:h'), blacklist_dirs)
+else
+  vim.o.path = vim.o.path .. ',**'
+end
+
+vim.api.nvim_create_user_command('RecursePath', function()
+  set_path(dirs, vim.fn.expand('%:p:h'), blacklist_dirs)
+end, {
+  desc = 'Recursively add directories to the path variable, while ignoring specified directories'
+})
