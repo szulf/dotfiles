@@ -47,14 +47,7 @@ vim.opt.hlsearch = true
 Nmap('<Esc>', function() vim.cmd('nohlsearch') end)
 
 vim.opt.wildmenu = true
-
 vim.o.clipboard = 'unnamedplus'
-
-vim.g.netrw_banner = 0
-vim.g.netrw_localcopydircmd = 'cp -r'
--- NOTE(szulf): still not sure about this netrw_keepdir
-vim.g.netrw_keepdir = 1
-Nmap('<leader>fd', function() vim.cmd('Ex') end)
 
 Nmap('<leader>wh', '<C-w><C-h>')
 Nmap('<leader>wj', '<C-w><C-j>')
@@ -88,7 +81,7 @@ vim.api.nvim_create_autocmd('InsertLeavePre', {
 
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
-    vim.highlight.on_yank()
+    vim.hl.on_yank()
   end
 })
 
@@ -96,14 +89,12 @@ vim.opt.iskeyword:remove('_')
 Nmap('*',
 function()
   vim.opt.iskeyword:append('_')
-  vim.cmd('normal! *')
+  vim.cmd('silent! normal! *')
   vim.opt.iskeyword:remove('_')
 end)
 
-Nmap('<leader><leader>', ':find ')
-Nmap('<leader>fe', ':e ')
-Nmap('<leader>pg', ':grep ')
-Nmap('<leader>pc', function() vim.cmd('make') end)
+Nmap('<leader>m', function() vim.cmd('make') end)
+Nmap('<leader>pt', ':Telescope live_grep<CR>TODO|NOTE|IMPORTANT')
 
 local makes = {
   ['/home/szulf/projects/handmade-hero'] = './build.sh',
@@ -113,7 +104,7 @@ local makes = {
 
 local cwd = vim.fn.getcwd()
 if makes[cwd] ~= nil then
-  vim.opt.makeprg = 'cd ' .. cwd .. ' && ' .. makes[cwd]
+  vim.opt.makeprg = makes[cwd]
 end
 
 vim.api.nvim_create_autocmd({'BufEnter', 'FileType'}, {
@@ -142,30 +133,3 @@ end
 Nmap('<leader>bk', function() vim.cmd('bd') end)
 
 require('config.lazy')
-
-local function set_path(dirs, dir_name, blacklist_dirs)
-  for _, dir in ipairs(vim.fn.readdir(dir_name)) do
-    local absolute_dir = dir_name .. '/' .. dir
-    if vim.fn.getftype(absolute_dir) == 'dir' and blacklist_dirs[dir] ~= true then
-      table.insert(dirs, absolute_dir)
-      vim.o.path = vim.o.path .. ',' .. absolute_dir
-      set_path(dirs, absolute_dir, blacklist_dirs)
-    end
-  end
-end
-
-local blacklist_dirs = { ['build'] = true, ['.git'] = true }
-vim.o.path = vim.o.path .. ',' .. vim.fn.getcwd()
-local dirs = {}
-
-if cwd:find('projects') ~= nil then
-  set_path(dirs, vim.fn.expand('%:p:h'), blacklist_dirs)
-else
-  vim.o.path = vim.o.path .. ',**'
-end
-
-vim.api.nvim_create_user_command('RecursePath', function()
-  set_path(dirs, vim.fn.expand('%:p:h'), blacklist_dirs)
-end, {
-  desc = 'Recursively add directories to the path variable, while ignoring specified directories'
-})

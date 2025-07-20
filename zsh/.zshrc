@@ -14,6 +14,7 @@ compinit
 
 PS1="[%B%F{blue}%n@%m%f%b %F{green}%1~%f] "
 
+alias hx="helix"
 alias vim="nvim"
 alias ls="ls --color=auto"
 alias grep="grep --color=auto"
@@ -60,6 +61,7 @@ export CXX=/usr/bin/clang++
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/installs"
 export PATH="$PATH:$HOME/projects/dotfiles/bin"
+export PATH="$PATH:$HOME/.config/emacs/bin"
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

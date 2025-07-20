@@ -1,11 +1,14 @@
 return {
   'nvim-treesitter/nvim-treesitter',
+
   build = ':TSUpdate',
+
   opts = {
     ensure_installed = { 'lua', 'cpp', 'vimdoc' },
     auto_install = true,
     highlight = { enable = true },
   },
+
   config = function(_, opts)
     require('nvim-treesitter.configs').setup(opts)
     vim.treesitter.language.register('angular', { 'html' })
@@ -16,6 +19,5 @@ return {
         vim.cmd('setlocal filetype=glsl')
       end,
     })
-
   end,
 }

@@ -21,8 +21,8 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 
-(setq doom-font (font-spec :family "JetBrains Mono" :size 13 :weight 'regular)
-      doom-variable-pitch-font (font-spec :family "Noto Sans" :size 13))
+(setq doom-font (font-spec :family "JetBrains Mono" :size 12 :weight 'regular)
+     doom-variable-pitch-font (font-spec :family "Noto Sans" :size 13))
 
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -33,9 +33,6 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-gruvbox)
-(custom-set-faces!
-  `(solaire-default-face :background "#000000")
-  `(default :background "#000000"))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -83,70 +80,14 @@
 (setq-default scroll-margin 10
               tab-width 2)
 
-(map!
- :n
- "C-SPC" nil
- "C-SPC" #'dabbrev-expand)
-
-(after! projectile
-  (setq projectile-project-search-path '("~/projects"))
-  (projectile-discover-projects-in-search-path))
-
-;; (defun sz/project-bookmark-name (name)
-;;   "Generate a project-scoped bookmark name using NAME."
-;;   (let ((project (projectile-project-name)))
-;;     (format "%s::%s" project name)))
-
-;; (defun sz/set-project-bookmark (name)
-;;   "Set a bookmark named NAME scoped to the current project."
-;;   (interactive "sBookmark name: ")
-;;   (bookmark-set (sz/project-bookmark-name name)))
-
-;; (defun sz/jump-to-project-bookmark (name)
-;;   "Jump to a project-scoped bookmark."
-;;   (interactive "sBookmark name: ")
-;;   (bookmark-jump (sz/project-bookmark-name name)))
-
-;; (defun sz/vertico-project-bookmark-jump ()
-;;   "Use Vertico to jump to a bookmark scoped to the current project."
-;;   (interactive)
-;;   (let* ((project (projectile-project-name))
-;;          (prefix (concat project "::"))
-;;          (matches (seq-filter (lambda (bm)
-;;                                 (string-prefix-p prefix (car bm)))
-;;                               (bookmark-maybe-sort-alist))))
-;;     (if matches
-;;         (let* ((choices (mapcar (lambda (bm)
-;;                                   (string-remove-prefix prefix (car bm)))
-;;                                 matches))
-;;                (selection (completing-read "Project bookmark: " choices)))
-;;           (bookmark-jump (concat prefix selection)))
-;;       (message "No bookmarks found for project: %s" project))))
-
-;; (map!
-;;  :leader
-;;  :map projectile-mode-map
-;;  :n
-;;  "RET" (cmd!
-;;         (when (projectile-project-p)
-;;           (sz/vertico-project-bookmark-jump)))))
-
-(after! lsp-mode
-  (setq lsp-ui-doc-enable nil
-        lsp-lens-enable nil
-        lsp-headerline-breadcrumb-enable nil
-        lsp-ui-sideline-enable nil
-        lsp-diagnostics-provider :none
-        lsp-modeline-diagnostics-enable nil))
-
-(remove-hook 'doom-first-buffer-hook #'global-flycheck-mode)
-(remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
-
 (after! flycheck
   (global-flycheck-mode -1))
 
 (after! smartparens
   (smartparens-global-mode -1))
+
+(remove-hook 'doom-first-buffer-hook #'global-flycheck-mode)
+(remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
 
 (after! evil
   (map!
@@ -161,3 +102,7 @@
 
 (setq-default fill-column 100)
 (global-display-fill-column-indicator-mode)
+
+(map!
+ :i
+ "C-SPC" #'dabbrev-expand)
