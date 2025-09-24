@@ -1,0 +1,34 @@
+theme = "gruvbox"
+
+[editor]
+scrolloff = 10
+gutters = ["diagnostics", "spacer", "diff"]
+completion-timeout = 5
+auto-pairs = false
+completion-trigger-len = 1
+rulers = [100]
+
+[editor.file-picker]
+hidden = false
+
+[editor.whitespace.render]
+space = "all"
+tab = "all"
+nbsp = "none"
+nnbsp = "none"
+newline = "none"
+
+[keys.normal]
+"{" = "goto_prev_paragraph"
+"}" = "goto_next_paragraph"
+"C-d" = ["page_cursor_half_down", "align_view_center"]
+"C-u" = ["page_cursor_half_up", "align_view_center"]
+"esc" = ["collapse_selection", "normal_mode", "keep_primary_selection"]
+
+[keys.select]
+"{" = "goto_prev_paragraph"
+"}" = "goto_next_paragraph"
+"esc" = ["collapse_selection", "normal_mode", "keep_primary_selection"]
+
+[keys.insert]
+"C-space" = "completion"

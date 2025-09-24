@@ -5,11 +5,11 @@
 files=(
     alacritty
     clang-format
-    doom
     git
     nvim
     tmux
     zsh
+    i3
 )
 
 stowit() {

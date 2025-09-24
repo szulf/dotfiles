@@ -1,0 +1,6 @@
+#/bin/sh
+
+output=$(echo "headphones\nspeakers" | dmenu)
+
+[ "$output" = "headphones" ] && pactl set-default-sink alsa_output.pci-0000_01_00.1.hdmi-stereo
+[ "$output" = "speakers" ] && pactl set-default-sink alsa_output.usb-Creative_Technology_Ltd_Creative_Pebble_Pro_MF1710-01.analog-stereo

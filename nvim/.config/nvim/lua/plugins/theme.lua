@@ -8,17 +8,16 @@ return {
   opts = {
     overrides = {
       SignColumn = { bg = '#000000' },
-      Normal = { bg = '#181818' },
       Delimiter = { fg = vim.api.nvim_get_hl_by_name('@text', true).foreground },
 
-      -- Function = { fg = vim.api.nvim_get_hl_by_name('@text', true).foreground },
-      -- ['@function'] = { fg = vim.api.nvim_get_hl_by_name('@text', true).foreground },
-      -- ['@function.call'] = { fg = vim.api.nvim_get_hl_by_name('@text', true).foreground },
-      -- ['@function.builtin'] = { fg = vim.api.nvim_get_hl_by_name('@text', true).foreground },
-      -- ['@function.method'] = { fg = vim.api.nvim_get_hl_by_name('@text', true).foreground },
-      -- ['@method'] = { fg = vim.api.nvim_get_hl_by_name('@text', true).foreground },
-      -- ['@method.call'] = { fg = vim.api.nvim_get_hl_by_name('@text', true).foreground },
-      -- ['@method.call'] = { fg = vim.api.nvim_get_hl_by_name('@text', true).foreground },
+      Function = { fg = vim.api.nvim_get_hl_by_name('@text', true).foreground },
+      ['@function'] = { fg = vim.api.nvim_get_hl_by_name('@text', true).foreground },
+      ['@function.call'] = { fg = vim.api.nvim_get_hl_by_name('@text', true).foreground },
+      ['@function.builtin'] = { fg = vim.api.nvim_get_hl_by_name('@text', true).foreground },
+      ['@function.method'] = { fg = vim.api.nvim_get_hl_by_name('@text', true).foreground },
+      ['@method'] = { fg = vim.api.nvim_get_hl_by_name('@text', true).foreground },
+      ['@method.call'] = { fg = vim.api.nvim_get_hl_by_name('@text', true).foreground },
+      ['@method.call'] = { fg = vim.api.nvim_get_hl_by_name('@text', true).foreground },
 
       ['@constructor'] = { fg = vim.api.nvim_get_hl_by_name('@text', true).foreground },
       ['@property'] = { fg = vim.api.nvim_get_hl_by_name('@text', true).foreground },

@@ -4,6 +4,3 @@ size = 9
 [font.normal]
 family = "JetBrains Mono"
 style = "Regular"
-
-[colors.primary]
-background = "#000000"

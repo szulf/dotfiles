@@ -6,14 +6,8 @@ because of chatgpt
 now with gnu stow
 
 ## consists of
-- setup script
-- nvim config
+- nvim
 - zsh
-- tmux config
-- alacritty config
-- dwm, dwmblocks and st config
-- doom emacs config
+- tmux
+- alacritty
 
-## TODO
-- dmenu script to switch audio outputs
-- maybe remap C-BackSpace to C-W in st

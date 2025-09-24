@@ -2,7 +2,6 @@
 
 search_dir=$HOME/projects
 
-
 name=$(find $search_dir -maxdepth 1 -mindepth 1 -type d | sed "s|^$HOME/||" | fzf)
 
 if [ -z $name ]; then

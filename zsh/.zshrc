@@ -69,3 +69,5 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 eval $(keychain --eval --quiet id_ed25519)
 
 export FZF_DEFAULT_OPTS="--color=16"
+
+export HELIX_RUNTIME="/usr/lib/helix/runtime"

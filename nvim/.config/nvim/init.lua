@@ -1,13 +1,13 @@
-function Nmap(key, action)
-  vim.keymap.set('n', key, action)
+function Nmap(key, action, opts)
+  vim.keymap.set('n', key, action, opts)
 end
 
-function Imap(key, action)
-  vim.keymap.set('i', key, action)
+function Imap(key, action, opts)
+  vim.keymap.set('i', key, action, opts)
 end
 
-function Cmap(key, action)
-  vim.keymap.set('c', key, action)
+function Cmap(key, action, opts)
+  vim.keymap.set('c', key, action, opts)
 end
 
 local function get_filename_from_path(path)
@@ -47,25 +47,13 @@ vim.opt.hlsearch = true
 Nmap('<Esc>', function() vim.cmd('nohlsearch') end)
 
 vim.opt.wildmenu = true
+
 vim.o.clipboard = 'unnamedplus'
 
-Nmap('<leader>wh', '<C-w><C-h>')
-Nmap('<leader>wj', '<C-w><C-j>')
-Nmap('<leader>wk', '<C-w><C-k>')
-Nmap('<leader>wl', '<C-w><C-l>')
-Nmap('<leader>wv', '<C-w><C-v>')
-Nmap('<leader>ws', '<C-w><C-s>')
-Nmap('<leader>wq', '<C-w><C-q>')
+vim.opt.wrap = false
 
 Nmap('<C-d>', '<C-d>zz')
 Nmap('<C-u>', '<C-u>zz')
-
-Nmap('<C-j>', '<C-n>')
-Nmap('<C-k>', '<C-p>')
-Imap('<C-j>', '<C-n>')
-Imap('<C-k>', '<C-p>')
-Cmap('<C-j>', '<C-n>')
-Cmap('<C-k>', '<C-p>')
 
 vim.api.nvim_create_autocmd('InsertEnter', {
   callback = function()
@@ -94,7 +82,7 @@ function()
 end)
 
 Nmap('<leader>m', function() vim.cmd('make') end)
-Nmap('<leader>pt', ':Telescope live_grep<CR>TODO|NOTE|IMPORTANT')
+Nmap('<leader>pt', function() vim.cmd('grep -e TODO -e NOTE -e IMPORTANT') end)
 
 local makes = {
   ['/home/szulf/projects/handmade-hero'] = './build.sh',
@@ -131,5 +119,10 @@ if vim.loop.os_uname().sysname == "Windows_NT" then
 end
 
 Nmap('<leader>bk', function() vim.cmd('bd') end)
+
+Nmap('<leader>qp', function() vim.cmd('cprev') end)
+Nmap('<leader>qn', function() vim.cmd('cnext') end)
+Nmap('<leader>qo', function() vim.cmd('copen') end)
+Nmap('<leader>qc', function() vim.cmd('cclose') end)
 
 require('config.lazy')
