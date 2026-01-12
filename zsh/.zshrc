@@ -12,7 +12,7 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-PS1="[%B%F{blue}%n@%m%f%b %F{green}%1~%f] "
+PS1="[%B%F{#b3969e}%n@%m%f%b %F{#93975a}%1~%f] "
 
 alias hx="helix"
 alias vim="nvim"
@@ -62,6 +62,7 @@ export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/installs"
 export PATH="$PATH:$HOME/projects/dotfiles/bin"
 export PATH="$PATH:$HOME/.config/emacs/bin"
+export PATH="$PATH:$HOME/"
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

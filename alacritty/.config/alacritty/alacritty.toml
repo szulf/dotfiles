@@ -2,5 +2,11 @@
 size = 9
 
 [font.normal]
-family = "JetBrains Mono"
+family = "CaskaydiaMonoNerdFont"
 style = "Regular"
+
+[env]
+TERM = "xterm-256color"
+
+[colors.primary]
+background = '#181818'
