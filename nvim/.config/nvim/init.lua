@@ -135,77 +135,6 @@ end
 
 require('config.lazy')
 
--- THEME:
-local function set_hl(names, value)
-  for i, v in ipairs(names) do
-    vim.api.nvim_set_hl(0, v, value)
-  end
-end
-
-set_hl({ 'Visual', 'MatchParen' }, { bg = '#000058' })
-set_hl({ 'Special' }, {})
-
-local colors = {
-  background  = "#181818",
-  punctuation = "#93975a",
-  string      = "#f99358",
-  comment     = "#53d549",
-  text        = "#fed8a7",
-  selection   = "#000058",
-  keyword     = "#b3969e",
-  white       = "#b3969e",
-  constant    = "#d9cace",
-  error       = "#ff0000",
-  warning     = "#ffaa00",
-  highlight   = "#524743",
-  line_fg     = "#72535c",
-}
-
-vim.cmd("highlight clear")
-vim.o.background = "dark"
-vim.g.colors_name = "naysayer"
-
-set_hl({ 'Normal' }, { fg = colors.text, bg = colors.background })
-set_hl({ 'Cursor' }, { bg = colors.white })
-set_hl({ 'Visual' }, { bg = colors.selection })
-set_hl({ 'LineNr' }, { fg = colors.line_fg, bg = colors.background })
-set_hl({ "CursorLineNr" }, { fg = colors.white, bg = colors.background })
-set_hl({ "CursorLine" }, { bg = colors.highlight })
-set_hl({ "ColorColumn" }, { bg = colors.highlight })
-set_hl({ "VertSplit" }, { fg = colors.line_fg })
-set_hl({ "MatchParen" }, { bg = colors.selection })
-
-set_hl({ "Comment" }, { fg = colors.comment })
-set_hl({ "String" }, { fg = colors.string })
-set_hl({ "Number" }, { fg = colors.constant })
-set_hl({ "Boolean" }, { fg = colors.constant })
-set_hl({ "Constant" }, { fg = colors.constant })
-set_hl({ 'Special' }, { fg = colors.delimiter })
-set_hl({ "Operator" }, { fg = colors.constant })
-set_hl({ "Identifier" }, { fg = colors.text })
-set_hl({ "Function" }, { fg = colors.text })
-set_hl({ "Statement" }, { fg = colors.keyword })
-set_hl({ "Keyword" }, { fg = colors.keyword })
-set_hl({ "Type" }, { fg = colors.punctuation })
-set_hl({ "PreProc" }, { fg = colors.constant })
-set_hl({ "WarningMsg" }, { fg = colors.warning })
-set_hl({ "Error" }, { fg = colors.error })
-
-set_hl({ "@comment" }, { link = "Comment" })
-set_hl({ "@string" }, { link = "String" })
-set_hl({ "@number" }, { link = "Number" })
-set_hl({ "@boolean" }, { link = "Boolean" })
-set_hl({ "@constant" }, { link = "Constant" })
-set_hl({ "@function" }, { link = "Function" })
-set_hl({ "@function.builtin" }, { link = "Function" })
-set_hl({ "@variable" }, { link = "Identifier" })
-set_hl({ "@type" }, { link = "Type" })
-set_hl({ "@keyword" }, { link = "Keyword" })
-set_hl({ "@keyword.function" }, { link = "Keyword" })
-set_hl({ "@field" }, { link = "Identifier" })
-set_hl({ "@property" }, { link = "Identifier" })
-set_hl({ "@parameter" }, { link = "Identifier" })
-
 local function create_highlight_groups()
   vim.api.nvim_set_hl(0, 'MyTODO', { fg = '#FF0000', bold = true })
   vim.api.nvim_set_hl(0, 'MyNOTE', { fg = '#00FF00', bold = true })
@@ -215,12 +144,10 @@ end
 
 local function apply_todo_highlights()
   if vim.w.todo_highlights_applied then return end
-
   vim.fn.matchadd('MyTODO', [[\<TODO\>]])
   vim.fn.matchadd('MyNOTE', [[\<NOTE\>]])
   vim.fn.matchadd('MyIMPORTANT', [[\<IMPORTANT\>]])
   vim.fn.matchadd('MyAUTHOR', [[\v(TODO|NOTE|IMPORTANT)\(\zs\w+\ze\):]])
-
   vim.w.todo_highlights_applied = true
 end
 
@@ -236,3 +163,4 @@ vim.api.nvim_create_autocmd({ 'WinEnter', 'BufWinEnter' }, {
 
 create_highlight_groups()
 apply_todo_highlights()
+
