@@ -10,6 +10,7 @@ files=(
     tmux
     zsh
     i3
+    wezterm
 )
 
 stowit() {
