@@ -57,7 +57,7 @@ Nmap('<C-u>', '<C-u>zz')
 
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
-    vim.hl.on_yank()
+    vim.highlight.on_yank()
   end
 })
 

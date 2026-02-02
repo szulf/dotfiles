@@ -64,8 +64,6 @@ export PATH="$PATH:$HOME/projects/dotfiles/bin"
 export PATH="$PATH:$HOME/.config/emacs/bin"
 export PATH="$PATH:$HOME/"
 
-eval $(keychain --eval --quiet id_ed25519)
-
 export FZF_DEFAULT_OPTS="--color=16"
 
 export HELIX_RUNTIME="/usr/lib/helix/runtime"
