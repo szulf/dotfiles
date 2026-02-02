@@ -3,14 +3,15 @@
 # TODO(szulf): change this to a sh script instead of a bash script
 
 files=(
-    alacritty
+    # alacritty
     clang-format
     git
-    nvim
-    tmux
-    zsh
+    # helix
     i3
+    nvim
+    # tmux
     wezterm
+    zsh
 )
 
 stowit() {

@@ -64,9 +64,6 @@ export PATH="$PATH:$HOME/projects/dotfiles/bin"
 export PATH="$PATH:$HOME/.config/emacs/bin"
 export PATH="$PATH:$HOME/"
 
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 eval $(keychain --eval --quiet id_ed25519)
 
 export FZF_DEFAULT_OPTS="--color=16"

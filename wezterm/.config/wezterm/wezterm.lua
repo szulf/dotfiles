@@ -9,8 +9,8 @@ local config = {
   use_fancy_tab_bar = false,
   tab_bar_at_bottom = true,
 
-  font = wezterm.font('CaskaydiaMonoNerdFont'),
-  font_size = 9,
+  font = wezterm.font('CascadiaMono'),
+  font_size = 10,
 
   leader = { key = 'a', mods = 'CTRL' },
   keys = {
