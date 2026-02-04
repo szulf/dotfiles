@@ -11,6 +11,7 @@ files=(
     nvim
     # tmux
     wezterm
+    zed
     zsh
 )
 
